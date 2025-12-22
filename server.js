@@ -38,6 +38,6 @@ server.listen(PORT, function () {
 4) git add .
 5) git status
 6) git commit -m "BRR: building express web server"
-
+7)  git log --oneline
 */ 
  

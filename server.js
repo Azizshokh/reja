@@ -42,13 +42,13 @@ app.post("/create-item", (req, res) => {
 });
 
 app.get("/", function(req, res){
-    res.render("harid")
+    res.render("reja")
 });
 
 const server = http.createServer(app);
 const PORT = 3000; // server shu portni eshitadi va o'qiydi
 server.listen(PORT, function () {
-    console.log(`The server is running succesfully on port: ${PORT}`);    
+    console.log(`The server is running succesfully on port: ${PORT}, http://localhost:${PORT}`);    
 });
 
 

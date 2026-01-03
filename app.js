@@ -1,4 +1,4 @@
-console.log("Web Serverni boshlash");
+console.log("Web Serverni boshlash!!!");
 //(npm i express@4.18.2)
 const express = require("express");
 const app = express(); // expressning objecti app ga yuboriladi
@@ -42,12 +42,35 @@ app.get("/hello", function (req, res) {
 // });
 
 app.post("/create-item", (req, res) => {
+  console.log("user entered /create-item");  
   console.log(req.body);
-  res.json({ test: "success" });
+  // res.end("succes");
+  const new_reja = req.body.reja;
+  db.collection("plans").insertOne({reja: new_reja}, (err, data) => {
+    if(err) {
+      console.log(err);
+      res.end("Something went wrong");           
+    } else {
+      res.end("Succesfully edded");
+    }
+  });
+
+  // res.json({ test: "success" });
 });
 
 app.get("/", function(req, res){
-    res.render("reja")
+  console.log("user entered /");  
+  db.collection("plans")
+  .find()
+  .toArray((err, data) => {
+    if(err) {
+      console.log(err);
+      res.end("Something went wrong");      
+    } else {
+      console.log(data);
+      res.render("reja", { items: data });      
+    }
+  });  
 });
 
 module.exports = app;

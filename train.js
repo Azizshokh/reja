@@ -19,6 +19,7 @@ function checkingString(string) {
   
 }
 checkingString("ad2a54y79wet0sfgb9");
+checkingString("ad5465154y79wet0sfgb9");
 
 
 /*

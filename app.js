@@ -47,12 +47,14 @@ app.post("/create-item", (req, res) => {
   // res.end("succes");
   const new_reja = req.body.reja;
   db.collection("plans").insertOne({reja: new_reja}, (err, data) => {
-    if(err) {
-      console.log(err);
-      res.end("Something went wrong");           
-    } else {
-      res.end("Succesfully edded");
-    }
+    // if(err) {
+    //   console.log(err);
+    //   res.end("Something went wrong");           
+    // } else {
+    //   res.end("Succesfully edded");
+    // }
+    console.log(data.ops);    
+    res.json(data.ops[0]);
   });
 
   // res.json({ test: "success" });

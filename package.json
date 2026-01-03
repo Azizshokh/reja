@@ -4,7 +4,7 @@
   "description": "It is car marketplace",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "dev": "nodemon app.js",
     "train": "nodemon train.js",
     "zoom": "nodemon zoom.js",

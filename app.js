@@ -44,10 +44,12 @@ app.set("view engine", "ejs"); //BSSR Backenda Frontend qurish
 
 app.post("/create-item", (req, res) => {
   console.log("user entered /create-item");  
-  console.log(req.body);
+  console.log(req.body);  // 2 Frontend dan Backendga qabul qilish
   // res.end("succes");
   const new_reja = req.body.reja;
-  db.collection("plans").insertOne({reja: new_reja}, (err, data) => {
+  db.collection("plans").insertOne(
+    {reja: new_reja}, // 3 Backend dan Database ga jo'nash
+    (err, data) => {  // 4 Database dan Backend ga qabul qilish
     // if(err) {
     //   console.log(err);
     //   res.end("Something went wrong");           
@@ -55,7 +57,7 @@ app.post("/create-item", (req, res) => {
     //   res.end("Succesfully edded");
     // }
     console.log(data.ops);    
-    res.json(data.ops[0]);
+    res.json(data.ops[0]); // 5 Backend dan Frontend ga jo'nash
   });
 
   // res.json({ test: "success" });

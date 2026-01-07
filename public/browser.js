@@ -20,11 +20,12 @@ document.getElementById("create-form").addEventListener("submit", (e) => {
     e.preventDefault();
 
     axios
-        .post("/create-item", { reja: createField.value })
+        .post("/create-item", { reja: createField.value })  // 1 Frontend dan Backend ga ma'lumot ketishi
         .then(response => {
+            // 6 Backend dan Frontend ga qabul qilish // Hali ishlov bermadik
             document
-            .getElementById("item-list")
-            .insertAdjacentHTML("beforeend", itemTemplate(response.data))
+            .getElementById("item-list") // <ul>
+            .insertAdjacentHTML("beforeend", itemTemplate(response.data)) // Endi ishlov beramiz
             createField.value = "";
             createField.focus();
         })
@@ -61,6 +62,8 @@ document.addEventListener("click", function(e) {
         let userInput = prompt("O'zgartirishni kiriting", text);
         if(userInput) {
             // console.log(userInput);
+            console.log("DB jRyon sodir bo'ldi");
+            
             axios
             .post("/edit-item",{
                 id: e.target.getAttribute("data-id"), 

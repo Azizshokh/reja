@@ -1,4 +1,22 @@
 /*
+E-TASK: 
+
+Shunday function tuzing, u bitta string argumentni qabul qilib
+osha stringni teskari qilib return qilsin.
+ MASALAN: getReverse("hello") return qilsin "olleh".
+*/
+
+
+function reverseWord (word) {
+  const newWord = word.split("").reverse().join("");
+  console.log(`${newWord}`);
+}
+reverseWord("hello");
+reverseWord("good");
+
+
+
+/*
 D-TASK: 
 
 Shunday class tuzing tuzing nomi Shop,

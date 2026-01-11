@@ -1,4 +1,38 @@
 /*
+F-TASK: 
+
+Shunday findDoublers function tuzing, 
+unga faqat bitta string argument pass bolib, agar stringda bir hil harf qatnashgan bolsa true,
+qatnashmasa false qaytarishi kerak. 
+MASALAN: getReverse("hello") return true return qiladi.
+*/
+
+function findDoublers(string) {
+  let seen = [];
+
+  for (let i = 0; i < string.length; i++) {
+    console.log("Hozirgi harf:", string[i]);
+    console.log("Oldin ko'rilganlar:", seen);
+
+    if (seen.includes(string[i])) {
+      console.log("Takroriy harf topildi:", string[i]);
+      return true;
+    }
+
+    seen.push(string[i]);
+    console.log("Arrayga qo'shildi:", seen);
+    console.log("-------------------");
+  }
+
+  console.log("Takroriy harf topilmadi");
+  return false;
+}
+
+console.log("Natija:", findDoublers("hello"));
+
+
+
+/*
 E-TASK: 
 
 Shunday function tuzing, u bitta string argumentni qabul qilib
@@ -7,7 +41,7 @@ osha stringni teskari qilib return qilsin.
 */
 
 
-function reverseWord (word) {
+function reverseWord(word) {
   const newWord = word.split("").reverse().join("");
   console.log(`${newWord}`);
 }
@@ -39,9 +73,6 @@ class Shop {
     return `${now.getHours()}:${now.getMinutes()}`;
   }
 
-  qoldiq() {
-    return `Hozir ${this.getTime()}da ${this.non}ta non, ${this.lagmon}ta lagmon va ${this.cola}ta cola mavjud!`;
-  }
 
   sotish(mahsulot, son) {
     this[mahsulot] -= son;
@@ -51,6 +82,10 @@ class Shop {
   qabul(mahsulot, son) {
     this[mahsulot] += son;
     console.log(`Hozir ${this.getTime()}da ${son}ta ${mahsulot} qabul qilindi`);
+  }
+
+  qoldiq() {
+    return `Hozir ${this.getTime()}da ${this.non}ta non, ${this.lagmon}ta lagmon va ${this.cola}ta cola mavjud!`;
   }
 }
 
@@ -75,23 +110,19 @@ hamda agar har ikkala string bir hil harflardan iborat bolsa
 */
 
 function checkContent(stringOne, stringTwo) {
-    stringOne = stringOne.toLowerCase();
-    stringTwo = stringTwo.toLowerCase();
-    if (stringOne.length === stringTwo.length) {
-        stringOne = stringOne.split("").sort().join("");
-        stringTwo = stringTwo.split("").sort().join("");
+  stringOne = stringOne.split("").sort().join("");
+  stringTwo = stringTwo.split("").sort().join("");
 
-        if (stringOne === stringTwo) {
-            console.log(`${stringOne} dagi harflar ${stringTwo} dagi harflar bilan bir xil!!!`); 
-            return;           
-        }
-    }
-    console.log(`${stringOne} dagi harflar ${stringTwo} dagi harflar bilan bir xil EMAS!!!`);
-        
+  if (stringOne.length === stringTwo.length && stringOne === stringTwo) {
+    console.log(`${stringOne} so'zidagi harflar ${stringTwo} dagi harflar bilan bir xil!!!`);
+  } else {
+    console.log(`${stringOne} so'zidagi harflar ${stringTwo} dagi harflar bilan bir xil EMAS!!!`);
+  }
 }
 
-checkContent("mitgroup", "gmtiprou");
+checkContent("Mitgroup", "gmtiprou");
 checkContent("hello", "world");
+
 
 
 /*
@@ -112,7 +143,7 @@ function checkingString(string) {
   }
 
   console.log(`${string} da ${count} ta raqam bor`);
-  
+
 }
 checkingString("ad2a54y79wet0sfgb9");
 checkingString("ad5465154y79wet0sfgb9");
@@ -127,21 +158,21 @@ MASALAN countLetter("e", "engineer") 3ni return qiladi.
 */
 
 function countingLetter(letter, word) {
-    let count = 0;
-    
-    const resultWorld = word;
-    const resultLetter = letter;
+  let count = 0;
 
-    letter = letter.toLowerCase();
-    word = word.toLowerCase();
-    
-    for(let i = 0; i < word.length; i++) {
-        if(word[i] === letter) {
-            count++;
-        }
+  const resultWorld = word;
+  const resultLetter = letter;
+
+  letter = letter.toLowerCase();
+  word = word.toLowerCase();
+
+  for (let i = 0; i < word.length; i++) {
+    if (word[i] === letter) {
+      count++;
     }
-    console.log(`${resultWorld} so'zida  ${resultLetter} harfi ${count} da`);
-    
+  }
+  console.log(`${resultWorld} so'zida  ${resultLetter} harfi ${count} da`);
+
 }
 
 countingLetter("e", "Engineer");
@@ -152,12 +183,12 @@ console.log("Train task is working");
 
 console.log("Jack Ma maslahatlari: ");
 const list = [
-   "yaxshi talaba bo'ling", // 0-20
-   "to'g'ri boshliq tanlang va ko'proq xato qiling", //30-40
-   "o'zingizga ishlashni boshlang", //30-40
-   "siz kuchli bo'lgan narsalarni qiling", //40-50
-   "yoshlarga investitsiya qiling", //50-60
-   "endi dam oling, foydasi yo'q", //60
+  "yaxshi talaba bo'ling", // 0-20
+  "to'g'ri boshliq tanlang va ko'proq xato qiling", //30-40
+  "o'zingizga ishlashni boshlang", //30-40
+  "siz kuchli bo'lgan narsalarni qiling", //40-50
+  "yoshlarga investitsiya qiling", //50-60
+  "endi dam oling, foydasi yo'q", //60
 ];
 
 // Callback function
@@ -191,45 +222,45 @@ const list = [
 
 // Asynchronous function
 
-async function maslahatBering (a) {
-    if(typeof a !== 'number') throw new Error ("insert a number");
-    else if (a <= 20) return list[0];
-    else if (a > 20 && a <= 30) return list[1];
-    else if (a > 30 && a <= 40) return list[2];
-    else if (a > 40 && a <= 50) return list[3];
-    else if (a > 50 && a <= 60) return list[4];
-    else {
-        // return list[5];
-        // setTimeout( function ()  {
-        //     return list[5]; 
-        // }, 5000);
-        // async funtionda setTimeout ishlatish un:
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(list[5]);
-            }, 5000);
-        });
-    } 
+async function maslahatBering(a) {
+  if (typeof a !== 'number') throw new Error("insert a number");
+  else if (a <= 20) return list[0];
+  else if (a > 20 && a <= 30) return list[1];
+  else if (a > 30 && a <= 40) return list[2];
+  else if (a > 40 && a <= 50) return list[3];
+  else if (a > 50 && a <= 60) return list[4];
+  else {
+    // return list[5];
+    // setTimeout( function ()  {
+    //     return list[5]; 
+    // }, 5000);
+    // async funtionda setTimeout ishlatish un:
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(list[5]);
+      }, 5000);
+    });
+  }
 }
 
 console.log("Passed here 0");
 // Call via then/catch
 maslahatBering(25)
-    .then((data) => {
-    console.log("Javob: ", data);    
-})
-    .catch((err) => {
-    console.log("Error: ", err );    
-});
+  .then((data) => {
+    console.log("Javob: ", data);
+  })
+  .catch((err) => {
+    console.log("Error: ", err);
+  });
 
 console.log("Passed here 1");
 // Call via asyn/await - to'lliq javob olmaguncha  keyingi qismlarga o'tmaydi
 async function run() {
-    let answer = await maslahatBering(25);
-    console.log(answer);
-    answer = await maslahatBering(70);
-    console.log(answer);
-    answer = await maslahatBering(41);
-    console.log(answer);            
+  let answer = await maslahatBering(25);
+  console.log(answer);
+  answer = await maslahatBering(70);
+  console.log(answer);
+  answer = await maslahatBering(41);
+  console.log(answer);
 }
 run();
